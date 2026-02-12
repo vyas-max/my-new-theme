@@ -172,7 +172,7 @@
           "type": "collection",
           "settings": {
             "title": "Best Seller",
-            "collection": ""
+            "collection": "best-seller"
           }
         },
         "tab_2": {
