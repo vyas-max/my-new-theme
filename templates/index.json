@@ -254,7 +254,7 @@
           "settings": {
             "source": "uploaded",
             "video": "shopify://files/videos/686fc38c1584488793cb47f95193f422.HD-1080p-4.8Mbps-12729205.mp4",
-            "video_autoplay": false,
+            "video_autoplay": true,
             "video_loop": true,
             "alt": "",
             "custom_width": 100,
