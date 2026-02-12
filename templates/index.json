@@ -165,280 +165,6 @@
         "color_scheme": ""
       }
     },
-<<<<<<< HEAD
-    "top_shelf_tabbed": {
-      "type": "top-shelf",
-      "blocks": {
-        "tab_1": {
-          "type": "collection",
-          "settings": {
-            "title": "Best Seller",
-            "collection": "best-seller"
-          }
-        },
-        "tab_2": {
-          "type": "collection",
-          "settings": {
-            "title": "Masks",
-            "collection": "masks"
-          }
-        },
-        "tab_3": {
-          "type": "collection",
-          "settings": {
-            "title": "Nail Care",
-            "collection": "nail-care"
-          }
-        }
-      },
-      "block_order": [
-        "tab_1",
-        "tab_2",
-        "tab_3"
-      ],
-      "settings": {
-        "heading": "Our Top Shelf",
-        "max_width": 1400,
-        "products_to_show": 4,
-        "padding_top": 64,
-        "padding_bottom": 64,
-        "color_scheme": ""
-      }
-    },
-    "studio_content_slider": {
-      "type": "studio-content-slider",
-      "blocks": {
-        "slide_1": {
-          "type": "slide",
-          "settings": {
-            "subtitle": "CRAFTSMANSHIP",
-            "title": "Exceptional Design",
-            "description": "<p>Every detail matters. Our products are crafted with precision and care, using only the finest materials and innovative techniques.</p>",
-            "button_label": "Learn More"
-          }
-        },
-        "slide_2": {
-          "type": "slide",
-          "settings": {
-            "subtitle": "PREMIUM QUALITY",
-            "title": "Artistic Vision",
-            "description": "<p>Experience the blend of traditional artistry and modern innovation in every piece of our collection.</p>",
-            "button_label": "Discover Now"
-          }
-        },
-        "slide_3": {
-          "type": "slide",
-          "settings": {
-            "subtitle": "EXCLUSIVITY",
-            "title": "Timeless Style",
-            "description": "<p>Discover unique designs that transcend trends and define your personal aesthetic with elegance.</p>",
-            "button_label": "Explore More"
-          }
-        }
-      },
-      "block_order": [
-        "slide_1",
-        "slide_2",
-        "slide_3"
-      ],
-      "settings": {
-        "autoplay_speed": 6,
-        "padding_top": 80,
-        "padding_bottom": 80
-      }
-    },
-    "product_list_fa6P9H": {
-      "type": "product-list",
-      "blocks": {
-        "static-header": {
-          "type": "_product-list-content",
-          "name": "t:names.header",
-          "static": true,
-          "settings": {
-            "content_direction": "row",
-            "vertical_on_mobile": false,
-            "horizontal_alignment": "space-between",
-            "vertical_alignment": "flex-end",
-            "align_baseline": true,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_list_text_YFtzcL": {
-              "type": "_product-list-text",
-              "name": "t:names.collection_title",
-              "settings": {
-                "text": "<h3>{{ closest.collection.title }}</h3>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h4",
-                "font": "var(--font-body--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_list_button_MWeP9V": {
-              "type": "_product-list-button",
-              "name": "t:names.product_list_button",
-              "settings": {
-                "label": "View all",
-                "open_in_new_tab": false,
-                "style_class": "link",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_list_text_YFtzcL",
-            "product_list_button_MWeP9V"
-          ]
-        },
-        "static-product-card": {
-          "type": "_product-card",
-          "name": "t:names.product_card",
-          "static": true,
-          "settings": {
-            "aspect_ratio": "125",
-            "card_radius": 16,
-            "gradient_opacity": 60,
-            "title_size": 18,
-            "price_size": 14,
-            "inherit_color_scheme": true,
-            "color_scheme": ""
-          },
-          "blocks": {
-            "product_card_gallery_677WP3": {
-              "type": "_product-card-gallery",
-              "name": "t:names.product_card_media",
-              "settings": {
-                "image_ratio": "portrait",
-                "border": "solid",
-                "border_width": 2,
-                "border_opacity": 0,
-                "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_title_YXxMTj": {
-              "type": "product-title",
-              "name": "t:names.product_title",
-              "settings": {
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 4,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "price_JQzVV4": {
-              "type": "price",
-              "name": "t:names.product_price",
-              "settings": {
-                "show_sale_price_first": true,
-                "show_installments": false,
-                "show_tax_info": false,
-                "type_preset": "h6",
-                "width": "100%",
-                "alignment": "left",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "color": "var(--color-foreground)",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_card_gallery_677WP3",
-            "product_title_YXxMTj",
-            "price_JQzVV4"
-          ]
-        }
-      },
-      "name": "Featured collection",
-      "settings": {
-        "collection": "all",
-        "layout_type": "grid",
-        "carousel_on_mobile": false,
-        "max_products": 8,
-        "columns": 4,
-        "mobile_columns": "2",
-        "mobile_card_size": "60cqw",
-        "columns_gap": 8,
-        "rows_gap": 24,
-        "icons_style": "arrow",
-        "icons_shape": "none",
-        "section_width": "page-width",
-        "horizontal_alignment": "flex-start",
-        "gap": 28,
-        "color_scheme": "scheme-1",
-        "padding-block-start": 48,
-        "padding-block-end": 48
-      }
-    },
-=======
->>>>>>> c2495955b3b22a9695413f4b2ac440e3b21d4861
     "marquee_XRaiUm": {
       "type": "marquee",
       "blocks": {
@@ -479,8 +205,6 @@
         "padding-block-end": 24,
         "gap_between_elements": 24
       }
-<<<<<<< HEAD
-=======
     },
     "top_shelf_tabbed": {
       "type": "top-shelf",
@@ -537,7 +261,7 @@
             "custom_width": 100,
             "custom_width_mobile": 100,
             "aspect_ratio": "16/9",
-            "border": "none",
+            "border": "solid",
             "border_width": 1,
             "border_opacity": 100,
             "border_radius": 0,
@@ -671,19 +395,13 @@
         "padding-block-start": 32,
         "padding-block-end": 32
       }
->>>>>>> c2495955b3b22a9695413f4b2ac440e3b21d4861
     }
   },
   "order": [
     "hero_jVaWmY",
     "shop_by_category_studio",
+    "marquee_XRaiUm",
     "top_shelf_tabbed",
-<<<<<<< HEAD
-    "studio_content_slider",
-    "product_list_fa6P9H",
-    "marquee_XRaiUm"
-=======
     "section_Qeh6c8"
->>>>>>> c2495955b3b22a9695413f4b2ac440e3b21d4861
   ]
 }
