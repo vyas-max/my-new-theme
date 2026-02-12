@@ -1,19 +1,19 @@
-<div class="announcement-marquee section-{{ section.id }}" style="--speed: {{ section.settings.speed }}s; --bg-color: {{ section.settings.background_color }}; --text-color: {{ section.settings.text_color }};">
+<div class="announcement-marquee" style="background-color: {{ section.settings.background_color }}; padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px; --speed: {{ section.settings.speed }}s; --pause-state: running;">
   <div class="announcement-marquee__wrapper">
     <div class="announcement-marquee__track">
       <div class="announcement-marquee__content">
         {% for i in (1..10) %}
-          <span class="announcement-marquee__text">{{ section.settings.text }}</span>
+          <span class="announcement-marquee__text" style="color: {{ section.settings.text_color }}; font-size: {{ section.settings.font_size }}px; font-weight: {{ section.settings.font_weight }}; letter-spacing: {{ section.settings.letter_spacing }}px; text-transform: {{ section.settings.text_transform }}; padding-right: {{ section.settings.text_spacing }}px;">{{ section.settings.text }}</span>
           {% if section.settings.separator != blank %}
-            <span class="announcement-marquee__separator">{{ section.settings.separator }}</span>
+            <span class="announcement-marquee__separator" style="color: {{ section.settings.text_color }}; font-size: {{ section.settings.font_size }}px; padding-right: {{ section.settings.text_spacing }}px;">{{ section.settings.separator }}</span>
           {% endif %}
         {% endfor %}
       </div>
       <div class="announcement-marquee__content" aria-hidden="true">
         {% for i in (1..10) %}
-          <span class="announcement-marquee__text">{{ section.settings.text }}</span>
+          <span class="announcement-marquee__text" style="color: {{ section.settings.text_color }}; font-size: {{ section.settings.font_size }}px; font-weight: {{ section.settings.font_weight }}; letter-spacing: {{ section.settings.letter_spacing }}px; text-transform: {{ section.settings.text_transform }}; padding-right: {{ section.settings.text_spacing }}px;">{{ section.settings.text }}</span>
           {% if section.settings.separator != blank %}
-            <span class="announcement-marquee__separator">{{ section.settings.separator }}</span>
+            <span class="announcement-marquee__separator" style="color: {{ section.settings.text_color }}; font-size: {{ section.settings.font_size }}px; padding-right: {{ section.settings.text_spacing }}px;">{{ section.settings.separator }}</span>
           {% endif %}
         {% endfor %}
       </div>
@@ -21,11 +21,9 @@
   </div>
 </div>
 
-<style>
+{% stylesheet %}
   .announcement-marquee {
-    background-color: var(--bg-color, #f5f5f5);
     overflow: hidden;
-    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
   }
 
   .announcement-marquee__wrapper {
@@ -35,8 +33,12 @@
 
   .announcement-marquee__track {
     display: flex;
-    animation: marquee var(--speed, 20s) linear infinite;
+    animation: marquee var(--speed) linear infinite;
     will-change: transform;
+  }
+
+  .announcement-marquee:hover .announcement-marquee__track {
+    animation-play-state: paused;
   }
 
   .announcement-marquee__content {
@@ -46,20 +48,8 @@
     white-space: nowrap;
   }
 
-  .announcement-marquee__text {
-    color: var(--text-color, #1a1a1a);
-    font-size: {{ section.settings.font_size }}px;
-    font-weight: {{ section.settings.font_weight }};
-    letter-spacing: {{ section.settings.letter_spacing }}px;
-    text-transform: {{ section.settings.text_transform }};
-    padding-right: {{ section.settings.text_spacing }}px;
-  }
-
   .announcement-marquee__separator {
-    color: var(--text-color, #1a1a1a);
-    font-size: {{ section.settings.font_size }}px;
     opacity: 0.4;
-    padding-right: {{ section.settings.text_spacing }}px;
   }
 
   @keyframes marquee {
@@ -71,14 +61,10 @@
     }
   }
 
-  .announcement-marquee:hover .announcement-marquee__track {
-    animation-play-state: {{ section.settings.pause_on_hover }};
-  }
-
   @media screen and (max-width: 749px) {
     .announcement-marquee__text,
     .announcement-marquee__separator {
-      font-size: {{ section.settings.font_size_mobile }}px;
+      font-size: 12px !important;
     }
   }
 
@@ -87,7 +73,7 @@
       animation: none;
     }
   }
-</style>
+{% endstylesheet %}
 
 {% schema %}
 {
@@ -194,16 +180,6 @@
       "step": 2,
       "unit": "s",
       "default": 30
-    },
-    {
-      "type": "select",
-      "id": "pause_on_hover",
-      "label": "Pause on hover",
-      "options": [
-        { "value": "paused", "label": "Yes" },
-        { "value": "running", "label": "No" }
-      ],
-      "default": "paused"
     },
     {
       "type": "header",
