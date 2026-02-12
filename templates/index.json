@@ -769,6 +769,50 @@
         "padding-block-end": 24,
         "gap_between_elements": 24
       }
+    },
+    "icon_list_EDq8xE": {
+      "type": "icon-list",
+      "blocks": {
+        "icon_item_pjAm9J": {
+          "type": "icon_item",
+          "settings": {
+            "image": "shopify://shop_images/FxStudio_MobileBanner_1.2_1.png",
+            "svg_code": "",
+            "title": "ALL NATURAL",
+            "subtitle": "We use only what nature gave us"
+          }
+        },
+        "icon_item_UV96CB": {
+          "type": "icon_item",
+          "settings": {
+            "image": "shopify://shop_images/3.jpg",
+            "svg_code": "",
+            "title": "POLLUTANT FREE",
+            "subtitle": "Keep our oceans clean and clear"
+          }
+        },
+        "icon_item_qAKnaJ": {
+          "type": "icon_item",
+          "settings": {
+            "image": "shopify://shop_images/Timeline_-_Desktop_-_2013_e1daf994-0b5b-4e84-99e3-9131adfcf250.webp",
+            "svg_code": "",
+            "title": "CRUELTY FREE",
+            "subtitle": "Animals deserve our respect"
+          }
+        }
+      },
+      "block_order": [
+        "icon_item_pjAm9J",
+        "icon_item_UV96CB",
+        "icon_item_qAKnaJ"
+      ],
+      "name": "Icon List",
+      "settings": {
+        "background_color": "#ffffff",
+        "padding_top": 64,
+        "padding_bottom": 64,
+        "color_scheme": ""
+      }
     }
   },
   "order": [
@@ -781,7 +825,14 @@
     "icon_list_benefits",
     "studio_content_slider",
     "section_Qeh6c8",
+<<<<<<< HEAD
     "product_list_fa6P9H",
     "marquee_XRaiUm"
+=======
+    "studio_content_slider_JjMmXK",
+    "shop_by_mood_cmTMr6",
+    "bundle_fbt_MX7zqH",
+    "icon_list_EDq8xE"
+>>>>>>> 3b3fd7af8a770d4bad3fd566229f50e7a9716f0e
   ]
 }
