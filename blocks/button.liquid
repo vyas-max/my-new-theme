@@ -1,5 +1,5 @@
 
-{% render 'button', link: block.settings.link %}
+{% render 'button', link: block.settings.link, hover_bg: block.settings.hover_bg, hover_text: block.settings.hover_text %}
 
 {% schema %}
 {
@@ -42,6 +42,22 @@
         }
       ],
       "default": "button"
+    },
+    {
+      "type": "header",
+      "content": "t:content.hover"
+    },
+    {
+      "type": "color",
+      "id": "hover_bg",
+      "label": "t:settings.hover_background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "hover_text",
+      "label": "t:settings.hover_text",
+      "default": "#ffffff"
     },
     {
       "type": "header",

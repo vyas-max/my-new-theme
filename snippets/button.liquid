@@ -22,14 +22,14 @@
     {{ block_settings.style_class }}
     {{ block_settings.style_class }}--{{ block.id }}
   "
-  style="{% render 'size-style', settings: block_settings %}"
+  style="{% render 'size-style', settings: block_settings %}; --hover-bg: {{ hover_bg | default: '#000000' }}; --hover-text: {{ hover_text | default: '#ffffff' }};"
   {%- if block_settings.open_in_new_tab -%}
     target="_blank"
     rel="noopener noreferrer"
   {%- endif -%}
   {{ block.shopify_attributes }}
 >
-  {{ block_settings.label }}
+  <span class="btn-text">{{ block_settings.label }}</span>
 </a>
 
 {% stylesheet %}
@@ -40,6 +40,38 @@
     &:hover {
       color: var(--color-primary-hover);
       text-decoration-color: transparent;
+    }
+  }
+
+  .button {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background-color: var(--hover-bg, #000000);
+      z-index: -1;
+      transition: width 0.4s ease;
+    }
+
+    &:hover::before {
+      width: 100%;
+    }
+
+    &:hover .btn-text {
+      color: var(--hover-text, #ffffff);
+    }
+
+    .btn-text {
+      position: relative;
+      z-index: 1;
+      transition: color 0.4s ease;
     }
   }
 {% endstylesheet %}
