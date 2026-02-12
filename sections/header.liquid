@@ -182,9 +182,23 @@
     display: none;
     background: none;
     border: none;
-    padding: 0;
+    padding: 10px;
     cursor: pointer;
     color: var(--color-foreground);
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+  }
+
+  .header__mobile-toggle:hover {
+    background-color: rgba(var(--color-foreground-rgb), 0.05);
+  }
+
+  .header__nav-mobile {
+    display: none;
   }
 
   /* Responsive Styles */
@@ -199,8 +213,13 @@
     }
 
     .header__mobile-toggle {
-      display: block;
-      margin-right: 1rem;
+      display: flex;
+      margin-right: 0.5rem;
+      grid-column: 1;
+    }
+
+    .header__icons {
+      grid-column: 3;
     }
 
     .header__bottom-row {
@@ -255,7 +274,7 @@
       
       <!-- Mobile Toggle -->
       <button type="button" class="header__mobile-toggle" aria-label="Menu" id="mobile-menu-toggle">
-        <span class="svg-wrapper" style="width: 24px; height: 24px;">
+        <span class="svg-wrapper" style="width: 32px; height: 32px;">
           {{ 'icon-menu.svg' | inline_asset_content }}
         </span>
       </button>
