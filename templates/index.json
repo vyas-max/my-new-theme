@@ -274,6 +274,7 @@
         "group_JxGXmY": {
           "type": "group",
           "name": "t:names.caption",
+          "disabled": true,
           "settings": {
             "content_direction": "row",
             "vertical_on_mobile": true,
@@ -375,7 +376,7 @@
         "horizontal_alignment_flex_direction_column": "flex-start",
         "vertical_alignment_flex_direction_column": "center",
         "gap": 16,
-        "section_width": "page-width",
+        "section_width": "full-width",
         "section_height": "",
         "section_height_custom": 50,
         "color_scheme": "",
