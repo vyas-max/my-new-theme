@@ -1449,6 +1449,37 @@ button.shopify-payment-button__button--unbranded:hover:not([disabled]) {
   --button-border-color: var(--color-secondary-button-hover-border);
 }
 
+.button--hover-animation {
+  position: relative;
+  overflow: hidden;
+}
+
+.button--hover-animation::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: var(--hover-bg, #000000);
+  z-index: 0;
+  transition: width 0.4s ease;
+}
+
+.button--hover-animation:hover::before {
+  width: 100%;
+}
+
+.button--hover-animation .btn-text {
+  position: relative;
+  z-index: 1;
+  transition: color 0.4s ease;
+}
+
+.button--hover-animation:hover .btn-text {
+  color: var(--hover-text, #ffffff);
+}
+
 /* Needed to override the default Shopify styles */
 button.shopify-payment-button__button--unbranded:hover:not([disabled]) {
   background-color: var(--button-background-color);
