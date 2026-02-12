@@ -1,0 +1,382 @@
+<div class="bundle-fbt section-{{ section.id }} color-{{ section.settings.color_scheme }}"
+     style="--padding-top: {{ section.settings.padding_top }}px; 
+            --padding-bottom: {{ section.settings.padding_bottom }}px;">
+  
+  <div class="bundle-fbt__container">
+    {% if section.settings.heading != blank %}
+      <h2 class="bundle-fbt__heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    <div class="bundle-fbt__wrapper">
+      <div class="bundle-fbt__left">
+        <div class="bundle-fbt__grid">
+          {%- assign product_ids = "" -%}
+          {% for block in section.blocks %}
+            {% if block.type == 'product' and block.settings.product != blank %}
+              {% assign product = block.settings.product %}
+              {% assign product_ids = product_ids | append: product.first_available_variant.id | append: "," %}
+              <div class="bundle-fbt__card" {{ block.shopify_attributes }}>
+                <div class="bundle-fbt__card-image-wrapper">
+                  {% if product.compare_at_price > product.price %}
+                    <span class="bundle-fbt__badge">Sale</span>
+                  {% endif %}
+                  {{ product.featured_image | image_url: width: 300 | image_tag: class: 'bundle-fbt__card-image', loading: 'lazy' }}
+                </div>
+                <div class="bundle-fbt__card-info">
+                  <h3 class="bundle-fbt__card-title">{{ product.title }}</h3>
+                  <div class="bundle-fbt__card-price">
+                    <span class="price-current">{{ product.price | money }}</span>
+                    {% if product.compare_at_price > product.price %}
+                      <span class="price-old">{{ product.compare_at_price | money }}</span>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+        
+        <div class="bundle-fbt__footer">
+          <button type="button" 
+                  class="bundle-fbt__add-button" 
+                  data-variant-ids="{{ product_ids | remove_last: "," }}"
+                  onclick="addBundleToCart(this)">
+            <span>Add All To Cart</span>
+            <div class="loading-overlay__spinner hidden">
+              <svg aria-hidden="true" focusable="false" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+              </svg>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <div class="bundle-fbt__right">
+        <div class="bundle-fbt__main-image-wrapper">
+          {% if section.settings.main_image != blank %}
+            {{ section.settings.main_image | image_url: width: 1200 | image_tag: class: 'bundle-fbt__main-image', loading: 'lazy' }}
+          {% else %}
+            {{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg bundle-fbt__main-image' }}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .bundle-fbt {
+    padding-top: var(--padding-top);
+    padding-bottom: var(--padding-bottom);
+    background: #fff;
+  }
+
+  .bundle-fbt__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .bundle-fbt__heading {
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 500;
+    margin-bottom: 5rem;
+    line-height: 1.2;
+    color: #000;
+  }
+
+  .bundle-fbt__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .bundle-fbt__left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bundle-fbt__grid {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-bottom: 4rem;
+    width: 100%;
+  }
+
+  .bundle-fbt__card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+  }
+
+  .bundle-fbt__card:hover {
+    transform: translateY(-5px);
+  }
+
+  .bundle-fbt__card-image-wrapper {
+    position: relative;
+    aspect-ratio: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  .bundle-fbt__card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .bundle-fbt__badge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #ff4e4e;
+    color: #fff;
+    padding: 2px 10px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    z-index: 2;
+  }
+
+  .bundle-fbt__card-info {
+    text-align: center;
+  }
+
+  .bundle-fbt__card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0 0 0.8rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 3.4rem;
+    line-height: 1.4;
+  }
+
+  .bundle-fbt__card-price {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .price-current {
+    font-weight: 700;
+    color: #000;
+    font-size: 1.4rem;
+  }
+
+  .price-old {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 1.1rem;
+  }
+
+  .bundle-fbt__add-button {
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 1.6rem 4rem;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .bundle-fbt__add-button:hover {
+    background: #333;
+    transform: scale(1.05);
+  }
+
+  .bundle-fbt__right {
+    width: 100%;
+  }
+
+  .bundle-fbt__main-image-wrapper {
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  }
+
+  .bundle-fbt__main-image {
+    width: 100%;
+    display: block;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  .spinner {
+    animation: rotator 1.4s linear infinite;
+  }
+
+  @keyframes rotator {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(270deg); }
+  }
+
+  @media screen and (max-width: 990px) {
+    .bundle-fbt__wrapper {
+      grid-template-columns: 1fr;
+    }
+    
+    .bundle-fbt__right {
+      order: -1;
+    }
+
+    .bundle-fbt__grid {
+      overflow-x: auto;
+      justify-content: flex-start;
+      padding-bottom: 2rem;
+      scrollbar-width: none;
+    }
+    
+    .bundle-fbt__grid::-webkit-scrollbar {
+      display: none;
+    }
+
+    .bundle-fbt__card {
+      flex: 0 0 160px;
+    }
+    
+    .bundle-fbt__heading {
+      font-size: 3rem;
+    }
+  }
+</style>
+
+<script>
+  function addBundleToCart(button) {
+    const variantIds = button.getAttribute('data-variant-ids').split(',');
+    const spinner = button.querySelector('.loading-overlay__spinner');
+    const label = button.querySelector('span');
+
+    button.disabled = true;
+    spinner.classList.remove('hidden');
+    label.style.opacity = '0.5';
+
+    let items = variantIds.map(id => ({
+      id: parseInt(id),
+      quantity: 1
+    }));
+
+    fetch(window.Shopify.routes.root + 'cart/add.js', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ items: items })
+    })
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      // Refresh cart or open drawer if the theme supports it
+      document.dispatchEvent(new CustomEvent('cart:build', { bubbles: true }));
+      
+      // Typical Shopify theme trigger for drawer
+      if (document.querySelector('cart-drawer')) {
+        document.querySelector('cart-drawer').classList.add('active');
+      } else {
+        window.location.href = '/cart';
+      }
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      alert('Something went wrong adding items to cart.');
+    })
+    .finally(() => {
+      button.disabled = false;
+      spinner.classList.add('hidden');
+      label.style.opacity = '1';
+    });
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Bundle FBT",
+  "tag": "section",
+  "class": "bundle-fbt-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Frequently Bought Together Bundle"
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Bundle Image"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Select Product"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bundle FBT",
+      "blocks": [
+        { "type": "product" },
+        { "type": "product" },
+        { "type": "product" }
+      ]
+    }
+  ]
+}
+{% endschema %}
