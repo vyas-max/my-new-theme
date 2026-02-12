@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero_jVaWmY": {
@@ -156,93 +165,46 @@
         "color_scheme": ""
       }
     },
-    "shop_by_mood_circular": {
-      "type": "shop-by-mood",
+    "marquee_XRaiUm": {
+      "type": "marquee",
       "blocks": {
-        "mood_1": {
-          "type": "mood",
+        "text_haLrHh": {
+          "type": "text",
           "settings": {
-            "title": "Sunday Reset"
-          }
-        },
-        "mood_2": {
-          "type": "mood",
-          "settings": {
-            "title": "On The Go"
-          }
-        },
-        "mood_3": {
-          "type": "mood",
-          "settings": {
-            "title": "Party Prep"
-          }
-        },
-        "mood_4": {
-          "type": "mood",
-          "settings": {
-            "title": "Clean Slate"
-          }
+            "text": "<p>We make things that work better and last longer.</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "tight",
+            "letter_spacing": "tight",
+            "case": "none",
+            "wrap": "nowrap",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "mood_1",
-        "mood_2",
-        "mood_3",
-        "mood_4"
+        "text_haLrHh"
       ],
+      "name": "t:names.marquee_section",
       "settings": {
-        "heading": "Shop by Mood",
-        "padding_top": 64,
-        "padding_bottom": 64
+        "movement_direction": "normal",
+        "color_scheme": "",
+        "padding-block-start": 24,
+        "padding-block-end": 24,
+        "gap_between_elements": 24
       }
-    },
-    "trending_this_week": {
-      "type": "trending-grid",
-      "settings": {
-        "heading": "Trending This Week",
-        "padding_top": 64,
-        "padding_bottom": 64
-      },
-      "blocks": {
-        "prod_1": {
-          "type": "product_item"
-        },
-        "prod_2": {
-          "type": "product_item"
-        },
-        "prod_3": {
-          "type": "product_item"
-        },
-        "prod_4": {
-          "type": "product_item"
-        },
-        "prod_5": {
-          "type": "product_item"
-        },
-        "prod_6": {
-          "type": "product_item"
-        },
-        "prod_7": {
-          "type": "product_item"
-        },
-        "prod_8": {
-          "type": "product_item"
-        },
-        "prod_9": {
-          "type": "product_item"
-        }
-      },
-      "block_order": [
-        "prod_1",
-        "prod_2",
-        "prod_3",
-        "prod_4",
-        "prod_5",
-        "prod_6",
-        "prod_7",
-        "prod_8",
-        "prod_9"
-      ]
     },
     "top_shelf_tabbed": {
       "type": "top-shelf",
@@ -281,111 +243,6 @@
         "padding_top": 64,
         "padding_bottom": 64,
         "color_scheme": ""
-      }
-    },
-    "fbt_bundle_main": {
-      "type": "bundle-fbt",
-      "settings": {
-        "heading": "Frequently Bought Together Bundle",
-        "padding_top": 80,
-        "padding_bottom": 80
-      },
-      "blocks": {
-        "prod_1": {
-          "type": "product"
-        },
-        "prod_2": {
-          "type": "product"
-        },
-        "prod_3": {
-          "type": "product"
-        }
-      },
-      "block_order": [
-        "prod_1",
-        "prod_2",
-        "prod_3"
-      ]
-    },
-    "icon_list_benefits": {
-      "type": "icon-list",
-      "settings": {
-        "background_color": "#ffffff",
-        "padding_top": 64,
-        "padding_bottom": 64
-      },
-      "blocks": {
-        "benefit_1": {
-          "type": "icon_item",
-          "settings": {
-            "title": "ALL NATURAL",
-            "subtitle": "We use only what nature gave us"
-          }
-        },
-        "benefit_2": {
-          "type": "icon_item",
-          "settings": {
-            "title": "POLLUTANT FREE",
-            "subtitle": "Keep our oceans clean and clear"
-          }
-        },
-        "benefit_3": {
-          "type": "icon_item",
-          "settings": {
-            "title": "CRUELTY FREE",
-            "subtitle": "Animals deserve our respect"
-          }
-        }
-      },
-      "block_order": [
-        "benefit_1",
-        "benefit_2",
-        "benefit_3"
-      ]
-    },
-    "studio_content_slider": {
-      "type": "studio-content-slider",
-      "blocks": {
-        "slide_1": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/chandler03387_Extreme_close-up_of_an_Asian_female_model_applyin_4c049018-605c-416b-88e1-ecc19a4d9842.webp",
-            "subtitle": "CRAFTSMANSHIP",
-            "title": "Exceptional Design",
-            "description": "<p>Every detail matters. Our products are crafted with precision and care, using only the finest materials and innovative techniques.</p>",
-            "button_label": "Learn More"
-          }
-        },
-        "slide_2": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/FxStudio_MobileBanner_1.2_1.png",
-            "subtitle": "PREMIUM QUALITY",
-            "title": "Artistic Vision",
-            "description": "<p>Experience the blend of traditional artistry and modern innovation in every piece of our collection.</p>",
-            "button_label": "Discover Now"
-          }
-        },
-        "slide_3": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/Timeline_-_Desktop_-_2013_e1daf994-0b5b-4e84-99e3-9131adfcf250.webp",
-            "subtitle": "EXCLUSIVITY",
-            "title": "Timeless Style",
-            "description": "<p>Discover unique designs that transcend trends and define your personal aesthetic with elegance.</p>",
-            "button_label": "Explore More"
-          }
-        }
-      },
-      "block_order": [
-        "slide_1",
-        "slide_2",
-        "slide_3"
-      ],
-      "settings": {
-        "autoplay_speed": 6,
-        "padding_top": 80,
-        "padding_bottom": 80
       }
     },
     "section_Qeh6c8": {
@@ -539,235 +396,140 @@
         "padding-block-end": 32
       }
     },
-    "product_list_fa6P9H": {
-      "type": "product-list",
+    "studio_content_slider_JjMmXK": {
+      "type": "studio-content-slider",
       "blocks": {
-        "static-header": {
-          "type": "_product-list-content",
-          "name": "t:names.header",
-          "static": true,
+        "slide_z7iGDL": {
+          "type": "slide",
           "settings": {
-            "content_direction": "row",
-            "vertical_on_mobile": false,
-            "horizontal_alignment": "space-between",
-            "vertical_alignment": "flex-end",
-            "align_baseline": true,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_list_text_YFtzcL": {
-              "type": "_product-list-text",
-              "name": "t:names.collection_title",
-              "settings": {
-                "text": "<h3>{{ closest.collection.title }}</h3>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h4",
-                "font": "var(--font-body--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_list_button_MWeP9V": {
-              "type": "_product-list-button",
-              "name": "t:names.product_list_button",
-              "settings": {
-                "label": "View all",
-                "open_in_new_tab": false,
-                "style_class": "link",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_list_text_YFtzcL",
-            "product_list_button_MWeP9V"
-          ]
+            "image": "shopify://shop_images/chandler03387_Extreme_close-up_of_an_Asian_female_model_applyin_4c049018-605c-416b-88e1-ecc19a4d9842.webp",
+            "subtitle": "CRAFTSMANSHIP",
+            "title": "Exceptional Design",
+            "description": "<p>Every detail matters. Our products are crafted with precision and care, using only the finest materials and innovative techniques.</p>",
+            "button_label": "Learn More",
+            "button_link": ""
+          }
         },
-        "static-product-card": {
-          "type": "_product-card",
-          "name": "t:names.product_card",
-          "static": true,
+        "slide_XH3qqk": {
+          "type": "slide",
           "settings": {
-            "aspect_ratio": "125",
-            "card_radius": 16,
-            "gradient_opacity": 60,
-            "title_size": 18,
-            "price_size": 14,
-            "inherit_color_scheme": true,
-            "color_scheme": ""
-          },
-          "blocks": {
-            "product_card_gallery_677WP3": {
-              "type": "_product-card-gallery",
-              "name": "t:names.product_card_media",
-              "settings": {
-                "image_ratio": "portrait",
-                "border": "solid",
-                "border_width": 2,
-                "border_opacity": 0,
-                "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_title_YXxMTj": {
-              "type": "product-title",
-              "name": "t:names.product_title",
-              "settings": {
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 4,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "price_JQzVV4": {
-              "type": "price",
-              "name": "t:names.product_price",
-              "settings": {
-                "show_sale_price_first": true,
-                "show_installments": false,
-                "show_tax_info": false,
-                "type_preset": "h6",
-                "width": "100%",
-                "alignment": "left",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "color": "var(--color-foreground)",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_card_gallery_677WP3",
-            "product_title_YXxMTj",
-            "price_JQzVV4"
-          ]
-        }
-      },
-      "name": "Featured collection",
-      "settings": {
-        "collection": "all",
-        "layout_type": "grid",
-        "carousel_on_mobile": false,
-        "max_products": 8,
-        "columns": 4,
-        "mobile_columns": "2",
-        "mobile_card_size": "60cqw",
-        "columns_gap": 8,
-        "rows_gap": 24,
-        "icons_style": "arrow",
-        "icons_shape": "none",
-        "section_width": "page-width",
-        "horizontal_alignment": "flex-start",
-        "gap": 28,
-        "color_scheme": "scheme-1",
-        "padding-block-start": 48,
-        "padding-block-end": 48
-      }
-    },
-    "marquee_XRaiUm": {
-      "type": "marquee",
-      "blocks": {
-        "text_haLrHh": {
-          "type": "text",
+            "image": "shopify://shop_images/FxStudio_MobileBanner_1.2_1.png",
+            "subtitle": "CRAFTSMANSHIP",
+            "title": "Exceptional Design",
+            "description": "<p>Every detail matters. Our products are crafted with precision and care, using only the finest materials and innovative techniques.</p>",
+            "button_label": "Learn More",
+            "button_link": ""
+          }
+        },
+        "slide_LcT3gX": {
+          "type": "slide",
           "settings": {
-            "text": "<p>We make things that work better and last longer.</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "custom",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "tight",
-            "letter_spacing": "tight",
-            "case": "none",
-            "wrap": "nowrap",
-            "color": "var(--color-foreground)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "image": "shopify://shop_images/Timeline_-_Desktop_-_2013_e1daf994-0b5b-4e84-99e3-9131adfcf250.webp",
+            "subtitle": "CRAFTSMANSHIP",
+            "title": "Exceptional Design",
+            "description": "<p>Every detail matters. Our products are crafted with precision and care, using only the finest materials and innovative techniques.</p>",
+            "button_label": "Learn More",
+            "button_link": ""
+          }
         }
       },
       "block_order": [
-        "text_haLrHh"
+        "slide_z7iGDL",
+        "slide_XH3qqk",
+        "slide_LcT3gX"
       ],
-      "name": "t:names.marquee_section",
+      "name": "Studio Content Slider",
       "settings": {
-        "movement_direction": "normal",
-        "color_scheme": "",
-        "padding-block-start": 24,
-        "padding-block-end": 24,
-        "gap_between_elements": 24
+        "autoplay_speed": 6,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "color_scheme": ""
+      }
+    },
+    "shop_by_mood_cmTMr6": {
+      "type": "shop-by-mood",
+      "blocks": {
+        "mood_McKFWE": {
+          "type": "mood",
+          "settings": {
+            "image": "shopify://shop_images/chandler03387_Extreme_close-up_of_an_Asian_female_model_applyin_4c049018-605c-416b-88e1-ecc19a4d9842.webp",
+            "title": "Sunday Reset",
+            "link": ""
+          }
+        },
+        "mood_zKYrti": {
+          "type": "mood",
+          "settings": {
+            "image": "shopify://shop_images/FxStudio_WebBanner_Combo_1_1.png",
+            "title": "On The Go",
+            "link": ""
+          }
+        },
+        "mood_NEhAeY": {
+          "type": "mood",
+          "settings": {
+            "image": "shopify://shop_images/Timeline_-_Desktop_-_2013_e1daf994-0b5b-4e84-99e3-9131adfcf250.webp",
+            "title": "Party Prep",
+            "link": ""
+          }
+        },
+        "mood_xgzL9t": {
+          "type": "mood",
+          "settings": {
+            "image": "shopify://shop_images/Media_grid_-_accessories.webp",
+            "title": "Clean Slate",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "mood_McKFWE",
+        "mood_zKYrti",
+        "mood_NEhAeY",
+        "mood_xgzL9t"
+      ],
+      "name": "Shop by Mood",
+      "settings": {
+        "heading": "Shop by Mood",
+        "padding_top": 64,
+        "padding_bottom": 64,
+        "color_scheme": ""
+      }
+    },
+    "bundle_fbt_MX7zqH": {
+      "type": "bundle-fbt",
+      "blocks": {
+        "product_hmF9ri": {
+          "type": "product",
+          "settings": {
+            "product": "demo"
+          }
+        },
+        "product_XVtbzE": {
+          "type": "product",
+          "settings": {
+            "product": "angling-bomber-jacket"
+          }
+        },
+        "product_e9ahJj": {
+          "type": "product",
+          "settings": {
+            "product": "men-s-women-s-angling-hoodie-blue-fox-logo-edition"
+          }
+        }
+      },
+      "block_order": [
+        "product_hmF9ri",
+        "product_XVtbzE",
+        "product_e9ahJj"
+      ],
+      "name": "Bundle FBT",
+      "settings": {
+        "heading": "Frequently Bought Together Bundle",
+        "main_image": "shopify://shop_images/FxStudio_WebBanner_Combo_1_1.png",
+        "padding_top": 64,
+        "padding_bottom": 64,
+        "color_scheme": ""
       }
     },
     "icon_list_EDq8xE": {
@@ -813,26 +575,74 @@
         "padding_bottom": 64,
         "color_scheme": ""
       }
+    },
+    "trending_grid_pqwGRn": {
+      "type": "trending-grid",
+      "blocks": {
+        "product_item_kr9Pid": {
+          "type": "product_item",
+          "settings": {
+            "product": "angling-bomber-jacket"
+          }
+        },
+        "product_item_jkPCKa": {
+          "type": "product_item",
+          "settings": {
+            "product": "demo"
+          }
+        },
+        "product_item_8jxzrm": {
+          "type": "product_item",
+          "settings": {
+            "product": "men-s-women-s-angling-hoodie-blue-fox-logo-edition"
+          }
+        },
+        "product_item_QKY6Dj": {
+          "type": "product_item",
+          "settings": {
+            "product": "men-s-women-s-angling-hoodie-sea-creatures-toon-series"
+          }
+        },
+        "product_item_jL9Pzg": {
+          "type": "product_item",
+          "settings": {
+            "product": "men-s-women-s-angling-hoodie-storm-logo-edition"
+          }
+        },
+        "product_item_HQDzA8": {
+          "type": "product_item",
+          "settings": {
+            "product": "demo"
+          }
+        }
+      },
+      "block_order": [
+        "product_item_kr9Pid",
+        "product_item_jkPCKa",
+        "product_item_8jxzrm",
+        "product_item_QKY6Dj",
+        "product_item_jL9Pzg",
+        "product_item_HQDzA8"
+      ],
+      "name": "Trending Grid",
+      "settings": {
+        "heading": "Trending This Week",
+        "background_color": "#f8f8f8",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
     }
   },
   "order": [
     "hero_jVaWmY",
     "shop_by_category_studio",
-    "shop_by_mood_circular",
-    "trending_this_week",
+    "marquee_XRaiUm",
     "top_shelf_tabbed",
-    "fbt_bundle_main",
-    "icon_list_benefits",
-    "studio_content_slider",
     "section_Qeh6c8",
-<<<<<<< HEAD
-    "product_list_fa6P9H",
-    "marquee_XRaiUm"
-=======
     "studio_content_slider_JjMmXK",
     "shop_by_mood_cmTMr6",
     "bundle_fbt_MX7zqH",
-    "icon_list_EDq8xE"
->>>>>>> 3b3fd7af8a770d4bad3fd566229f50e7a9716f0e
+    "icon_list_EDq8xE",
+    "trending_grid_pqwGRn"
   ]
 }
