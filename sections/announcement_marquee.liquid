@@ -1,0 +1,250 @@
+<div class="announcement-marquee section-{{ section.id }}" style="--speed: {{ section.settings.speed }}s; --bg-color: {{ section.settings.background_color }}; --text-color: {{ section.settings.text_color }};">
+  <div class="announcement-marquee__wrapper">
+    <div class="announcement-marquee__track">
+      <div class="announcement-marquee__content">
+        {% for i in (1..10) %}
+          <span class="announcement-marquee__text">{{ section.settings.text }}</span>
+          {% if section.settings.separator != blank %}
+            <span class="announcement-marquee__separator">{{ section.settings.separator }}</span>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <div class="announcement-marquee__content" aria-hidden="true">
+        {% for i in (1..10) %}
+          <span class="announcement-marquee__text">{{ section.settings.text }}</span>
+          {% if section.settings.separator != blank %}
+            <span class="announcement-marquee__separator">{{ section.settings.separator }}</span>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .announcement-marquee {
+    background-color: var(--bg-color, #f5f5f5);
+    overflow: hidden;
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+  }
+
+  .announcement-marquee__wrapper {
+    display: flex;
+    width: 100%;
+  }
+
+  .announcement-marquee__track {
+    display: flex;
+    animation: marquee var(--speed, 20s) linear infinite;
+    will-change: transform;
+  }
+
+  .announcement-marquee__content {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .announcement-marquee__text {
+    color: var(--text-color, #1a1a1a);
+    font-size: {{ section.settings.font_size }}px;
+    font-weight: {{ section.settings.font_weight }};
+    letter-spacing: {{ section.settings.letter_spacing }}px;
+    text-transform: {{ section.settings.text_transform }};
+    padding-right: {{ section.settings.text_spacing }}px;
+  }
+
+  .announcement-marquee__separator {
+    color: var(--text-color, #1a1a1a);
+    font-size: {{ section.settings.font_size }}px;
+    opacity: 0.4;
+    padding-right: {{ section.settings.text_spacing }}px;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  .announcement-marquee:hover .announcement-marquee__track {
+    animation-play-state: {{ section.settings.pause_on_hover }};
+  }
+
+  @media screen and (max-width: 749px) {
+    .announcement-marquee__text,
+    .announcement-marquee__separator {
+      font-size: {{ section.settings.font_size_mobile }}px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .announcement-marquee__track {
+      animation: none;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Announcement Marquee",
+  "tag": "section",
+  "class": "announcement-marquee-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Announcement text",
+      "default": "We make things that work better and last longer. Let your day be filled with what inspires you."
+    },
+    {
+      "type": "text",
+      "id": "separator",
+      "label": "Separator symbol",
+      "default": "•"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Font size (desktop)",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "font_size_mobile",
+      "label": "Font size (mobile)",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "select",
+      "id": "font_weight",
+      "label": "Font weight",
+      "options": [
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semibold" }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "range",
+      "id": "letter_spacing",
+      "label": "Letter spacing",
+      "min": 0,
+      "max": 5,
+      "step": 0.5,
+      "unit": "px",
+      "default": 0.5
+    },
+    {
+      "type": "select",
+      "id": "text_transform",
+      "label": "Text transform",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "lowercase", "label": "Lowercase" },
+        { "value": "capitalize", "label": "Capitalize" }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "header",
+      "content": "Animation"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "Scroll speed",
+      "min": 10,
+      "max": 60,
+      "step": 2,
+      "unit": "s",
+      "default": 30
+    },
+    {
+      "type": "select",
+      "id": "pause_on_hover",
+      "label": "Pause on hover",
+      "options": [
+        { "value": "paused", "label": "Yes" },
+        { "value": "running", "label": "No" }
+      ],
+      "default": "paused"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "text_spacing",
+      "label": "Text spacing",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 8,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 8,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    }
+  ],
+  "presets": [
+    {
+      "name": "Announcement Marquee",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}
