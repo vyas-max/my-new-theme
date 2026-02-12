@@ -45,9 +45,9 @@
 
   /* Search Bar */
   .header__search {
-    justify-self: start;
+    justify-self: center;
     width: 100%;
-    max-width: 300px;
+    max-width: 400px;
   }
 
   .header__search-form {
@@ -76,7 +76,7 @@
 
   /* Logo */
   .header__logo {
-    justify-self: center;
+    justify-self: start;
   }
 
   .header__logo-link {
@@ -94,10 +94,21 @@
   }
 
   .header__logo-text {
-    font-size: 2rem;
-    font-weight: 300;
-    letter-spacing: -1px;
-    text-transform: lowercase;
+    font-size: 2.2rem;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .header__logo-box {
+    border: 1px solid #000;
+    padding: 0 4px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   /* Icons */
@@ -205,7 +216,7 @@
   @media screen and (max-width: 990px) {
     .header__top-row {
       grid-template-columns: auto 1fr auto;
-      padding: 1rem 0;
+      padding: 0.8rem 0;
     }
 
     .header__search {
@@ -216,6 +227,11 @@
       display: flex;
       margin-right: 0.5rem;
       grid-column: 1;
+    }
+
+    .header__logo {
+      grid-column: 2;
+      justify-self: center;
     }
 
     .header__icons {
@@ -279,7 +295,24 @@
         </span>
       </button>
 
-      <!-- Search (Desktop) -->
+      <!-- Logo (Left on Desktop, Center on Mobile) -->
+      <div class="header__logo">
+        <a href="{{ routes.root_url }}" class="header__logo-link">
+          {%- if logo != blank -%}
+             <div class="header__logo-text">
+                <div class="header__logo-box">fx</div>
+                <span>studio</span>
+             </div>
+          {%- else -%}
+            <div class="header__logo-text">
+                <div class="header__logo-box">fx</div>
+                <span>studio</span>
+            </div>
+          {%- endif -%}
+        </a>
+      </div>
+
+      <!-- Search (Desktop Center) -->
       <div class="header__search">
         <form action="{{ routes.search_url }}" method="get" class="header__search-form">
           <span class="header__search-icon">
@@ -287,24 +320,6 @@
           </span>
           <input type="text" name="q" placeholder="Search" class="header__search-input" aria-label="Search">
         </form>
-      </div>
-
-      <!-- Logo -->
-      <div class="header__logo">
-        <a href="{{ routes.root_url }}" class="header__logo-link">
-          {%- if logo != blank -%}
-            {%- assign logo_height = logo_width | divided_by: logo.aspect_ratio -%}
-            {{ logo | image_url: width: 600 | image_tag:
-              class: 'header__logo-image',
-              widths: '50, 100, 150, 200, 250, 300, 400, 500',
-              height: logo_height,
-              width: logo_width,
-              alt: shop.name
-            }}
-          {%- else -%}
-            <span class="header__logo-text">fx studio</span>
-          {%- endif -%}
-        </a>
       </div>
 
       <!-- Icons -->
