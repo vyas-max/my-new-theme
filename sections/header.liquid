@@ -61,7 +61,7 @@
 
   /* Search Bar */
   .header__search {
-    justify-self: center;
+    justify-self: start;
     width: 100%;
     max-width: 400px;
     {% unless show_search %}display: none;{% endunless %}
@@ -93,7 +93,7 @@
 
   /* Logo */
   .header__logo {
-    justify-self: start;
+    justify-self: center;
   }
 
   .header__logo-link {
@@ -319,7 +319,19 @@
         </span>
       </button>
 
-      <!-- Logo (Left on Desktop, Center on Mobile) -->
+      <!-- Search (Desktop Left) -->
+      {% if show_search %}
+        <div class="header__search">
+          <form action="{{ routes.search_url }}" method="get" class="header__search-form">
+            <span class="header__search-icon">
+              {{ 'icon-search.svg' | inline_asset_content }}
+            </span>
+            <input type="text" name="q" placeholder="{{ search_placeholder }}" class="header__search-input" aria-label="{{ search_placeholder }}">
+          </form>
+        </div>
+      {% endif %}
+
+      <!-- Logo (Desktop Center) -->
       <div class="header__logo">
         <a href="{{ routes.root_url }}" class="header__logo-link">
           {%- if logo != blank -%}
@@ -336,18 +348,6 @@
           {%- endif -%}
         </a>
       </div>
-
-      <!-- Search (Desktop Center) -->
-      {% if show_search %}
-        <div class="header__search">
-          <form action="{{ routes.search_url }}" method="get" class="header__search-form">
-            <span class="header__search-icon">
-              {{ 'icon-search.svg' | inline_asset_content }}
-            </span>
-            <input type="text" name="q" placeholder="{{ search_placeholder }}" class="header__search-input" aria-label="{{ search_placeholder }}">
-          </form>
-        </div>
-      {% endif %}
 
       <!-- Icons -->
       <div class="header__icons">
