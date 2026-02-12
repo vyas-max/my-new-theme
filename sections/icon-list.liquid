@@ -1,0 +1,232 @@
+<div class="icon-list section-{{ section.id }} color-{{ section.settings.color_scheme }}" 
+     style="--padding-top: {{ section.settings.padding_top }}px; 
+            --padding-bottom: {{ section.settings.padding_bottom }}px;
+            --background-color: {{ section.settings.background_color }};">
+  
+  <div class="icon-list__container">
+    <div class="icon-list__wrapper">
+      {% for block in section.blocks %}
+        <div class="icon-list__item" {{ block.shopify_attributes }}>
+          <div class="icon-list__icon-wrapper">
+            {% if block.settings.image != blank %}
+              {{ block.settings.image | image_url: width: 100 | image_tag: class: 'icon-list__image', loading: 'lazy' }}
+            {% elsif block.settings.svg_code != blank %}
+              <div class="icon-list__svg">{{ block.settings.svg_code }}</div>
+            {% else %}
+              {{ 'logo' | placeholder_svg_tag: 'placeholder-svg' }}
+            {% endif %}
+          </div>
+          
+          <div class="icon-list__content">
+            {% if block.settings.title != blank %}
+              <h3 class="icon-list__title">{{ block.settings.title }}</h3>
+            {% endif %}
+            {% if block.settings.subtitle != blank %}
+              <p class="icon-list__subtitle">{{ block.settings.subtitle }}</p>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<style>
+  .icon-list {
+    padding-top: var(--padding-top);
+    padding-bottom: var(--padding-bottom);
+    background-color: var(--background-color);
+  }
+
+  .icon-list__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 4rem;
+  }
+
+  .icon-list__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 8rem;
+    flex-wrap: wrap;
+  }
+
+  .icon-list__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
+  }
+
+  .icon-list__icon-wrapper {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+  }
+
+  .icon-list__image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .icon-list__svg svg {
+    width: 60px;
+    height: 60px;
+    display: block;
+    fill: currentColor;
+  }
+
+  .icon-list__title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin: 0 0 1rem;
+    color: #000;
+  }
+
+  .icon-list__subtitle {
+    font-size: 1.2rem;
+    margin: 0;
+    color: #333;
+    line-height: 1.5;
+    opacity: 0.9;
+  }
+
+  @media screen and (max-width: 990px) {
+    .icon-list__wrapper {
+      gap: 4rem;
+    }
+    
+    .icon-list__container {
+      padding: 0 2rem;
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    .icon-list__wrapper {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .icon-list__item {
+      max-width: 100%;
+      min-width: auto;
+    }
+    
+    .icon-list__icon-wrapper {
+      margin-bottom: 1.5rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Icon List",
+  "tag": "section",
+  "class": "icon-list-section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "icon_item",
+      "name": "Icon Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Icon Image",
+          "info": "Use a transparent PNG or SVG image."
+        },
+        {
+          "type": "html",
+          "id": "svg_code",
+          "label": "SVG Icon Code",
+          "info": "Optionally paste SVG code here."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Benefit Title"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "Short description of the benefit."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Icon List",
+      "blocks": [
+        {
+          "type": "icon_item",
+          "settings": {
+            "title": "ALL NATURAL",
+            "subtitle": "We use only what nature gave us"
+          }
+        },
+        {
+          "type": "icon_item",
+          "settings": {
+            "title": "POLLUTANT FREE",
+            "subtitle": "Keep our oceans clean and clear"
+          }
+        },
+        {
+          "type": "icon_item",
+          "settings": {
+            "title": "CRUELTY FREE",
+            "subtitle": "Animals deserve our respect"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
