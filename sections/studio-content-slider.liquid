@@ -1,0 +1,429 @@
+<div class="studio-slider section-{{ section.id }} color-{{ section.settings.color_scheme }}" 
+     style="--padding-top: {{ section.settings.padding_top }}px; 
+            --padding-bottom: {{ section.settings.padding_bottom }}px;
+            --autoplay-speed: {{ section.settings.autoplay_speed }}s;">
+  
+  <div class="studio-slider__container">
+    <div class="studio-slider__wrapper">
+      {% for block in section.blocks %}
+        <div class="studio-slider__slide {% if forloop.first %}is-active{% endif %}" data-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+          <div class="studio-slider__content">
+            <div class="studio-slider__text-box">
+              {% if block.settings.subtitle != blank %}
+                <span class="studio-slider__subtitle">{{ block.settings.subtitle }}</span>
+              {% endif %}
+              
+              {% if block.settings.title != blank %}
+                <h2 class="studio-slider__heading">{{ block.settings.title }}</h2>
+              {% endif %}
+              
+              {% if block.settings.description != blank %}
+                <div class="studio-slider__description">{{ block.settings.description }}</div>
+              {% endif %}
+              
+              {% if block.settings.button_label != blank %}
+                <a href="{{ block.settings.button_link | default: '#' }}" class="studio-slider__button">
+                  {{ block.settings.button_label }}
+                  <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 7H17M17 7L11 1M17 7L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              {% endif %}
+
+              <div class="studio-slider__pagination">
+                <div class="studio-slider__progress-bar">
+                  <div class="studio-slider__progress-fill"></div>
+                </div>
+                <div class="studio-slider__counter">
+                  <span class="current-slide">0{{ forloop.index }}</span> / <span class="total-slides">0{{ section.blocks.size }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="studio-slider__image-area">
+            <div class="studio-slider__image-wrapper">
+              {% if block.settings.image != blank %}
+                {{ block.settings.image | image_url: width: 1400 | image_tag:
+                  loading: 'lazy',
+                  class: 'studio-slider__image',
+                  widths: '400, 600, 800, 1000, 1200, 1400'
+                }}
+              {% else %}
+                {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg studio-slider__image' }}
+              {% endif %}
+              
+              <div class="studio-slider__dots">
+                {% for dot_block in section.blocks %}
+                  <button class="studio-slider__dot {% if forloop.index0 == forloop.parentloop.index0 %}is-active{% endif %}" 
+                          data-jump="{{ forloop.index0 }}"
+                          aria-label="Go to slide {{ forloop.index }}"></button>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<style>
+  .studio-slider {
+    padding-top: var(--padding-top);
+    padding-bottom: var(--padding-bottom);
+    overflow: hidden;
+    background-color: transparent;
+  }
+
+  .studio-slider__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .studio-slider__wrapper {
+    position: relative;
+    min-height: 500px;
+  }
+
+  .studio-slider__slide {
+    display: none;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    opacity: 0;
+  }
+
+  .studio-slider__slide.is-active {
+    display: grid;
+    animation: studioFadeIn 0.8s ease forwards;
+  }
+
+  @keyframes studioFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .studio-slider__content {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .studio-slider__text-box {
+    max-width: 480px;
+  }
+
+  .studio-slider__subtitle {
+    font-size: 1.1rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #888;
+    display: block;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+  }
+
+  .studio-slider__heading {
+    font-size: 4.8rem;
+    line-height: 1.1;
+    font-weight: 500;
+    margin: 0 0 2rem 0;
+    color: #121212;
+    letter-spacing: -0.02em;
+  }
+
+  .studio-slider__description {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 3.5rem;
+  }
+
+  .studio-slider__button {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.2rem;
+    background: #000;
+    color: #fff;
+    padding: 1.6rem 3.2rem;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.4rem;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+
+  .studio-slider__button:hover {
+    background: #222;
+    transform: translateX(5px);
+  }
+
+  .studio-slider__pagination {
+    margin-top: 6rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .studio-slider__progress-bar {
+    width: 120px;
+    height: 2px;
+    background: #e0e0e0;
+    position: relative;
+  }
+
+  .studio-slider__progress-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: #000;
+  }
+
+  .studio-slider__slide.is-active .studio-slider__progress-fill {
+    animation: studioProgress var(--autoplay-speed) linear forwards;
+  }
+
+  @keyframes studioProgress {
+    from { width: 0%; }
+    to { width: 100%; }
+  }
+
+  .studio-slider__counter {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #888;
+    letter-spacing: 0.05em;
+  }
+
+  .studio-slider__counter .current-slide {
+    color: #121212;
+  }
+
+  .studio-slider__image-area {
+    position: relative;
+  }
+
+  .studio-slider__image-wrapper {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    aspect-ratio: 1.2;
+  }
+
+  .studio-slider__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .studio-slider__dots {
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    z-index: 10;
+  }
+
+  .studio-slider__dot {
+    width: 6px;
+    height: 6px;
+    padding: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.6);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .studio-slider__dot.is-active {
+    background: #000;
+    transform: scale(1.5);
+    box-shadow: 0 0 0 4px rgba(0,0,0,0.1);
+  }
+
+  @media screen and (max-width: 990px) {
+    .studio-slider__slide {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    
+    .studio-slider__heading {
+      font-size: 3.6rem;
+    }
+    
+    .studio-slider__pagination {
+      margin-top: 3rem;
+    }
+    
+    .studio-slider__image-wrapper {
+      aspect-ratio: 1;
+    }
+  }
+</style>
+
+<script>
+  (function() {
+    function initStudioSlider() {
+      const section = document.querySelector('.section-{{ section.id }}');
+      if (!section) return;
+
+      const slides = Array.from(section.querySelectorAll('.studio-slider__slide'));
+      const dots = Array.from(section.querySelectorAll('.studio-slider__dot'));
+      const autoplaySpeed = parseInt(window.getComputedStyle(section).getPropertyValue('--autoplay-speed')) * 1000;
+      let currentIndex = 0;
+      let intervalId = null;
+
+      function goToSlide(index) {
+        slides.forEach(s => s.classList.remove('is-active'));
+        dots.forEach(d => d.classList.remove('is-active'));
+
+        currentIndex = index;
+        if (currentIndex >= slides.length) currentIndex = 0;
+        if (currentIndex < 0) currentIndex = slides.length - 1;
+
+        slides[currentIndex].classList.add('is-active');
+        
+        // Update all dot groups for the current slide index
+        section.querySelectorAll(`.studio-slider__dot[data-jump="${currentIndex}"]`).forEach(d => d.classList.add('is-active'));
+        
+        resetTimer();
+      }
+
+      function nextSlide() {
+        goToSlide(currentIndex + 1);
+      }
+
+      function resetTimer() {
+        if (intervalId) clearInterval(intervalId);
+        intervalId = setInterval(nextSlide, autoplaySpeed);
+      }
+
+      // Manual Jump
+      section.addEventListener('click', (e) => {
+        const jumpBtn = e.target.closest('.studio-slider__dot');
+        if (jumpBtn) {
+          goToSlide(parseInt(jumpBtn.dataset.jump));
+        }
+      });
+
+      // Pause on hover
+      section.addEventListener('mouseenter', () => clearInterval(intervalId));
+      section.addEventListener('mouseleave', () => resetTimer());
+
+      resetTimer();
+    }
+
+    // Initialize on load and for Shopify editor
+    initStudioSlider();
+    document.addEventListener('shopify:section:load', initStudioSlider);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Studio Content Slider",
+  "tag": "section",
+  "class": "studio-content-slider-section",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "label": "Autoplay Speed (seconds)",
+      "min": 3,
+      "max": 15,
+      "step": 1,
+      "default": 6
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Slide Image"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Small Subtitle",
+          "default": "CRAFTSMANSHIP"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Exceptional Design"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>Every detail matters. Our products are crafted with precision and care, using only the finest materials and innovative techniques.</p>"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button Label",
+          "default": "Learn More"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Studio Content Slider",
+      "blocks": [
+        { "type": "slide" },
+        { "type": "slide" },
+        { "type": "slide" }
+      ]
+    }
+  ]
+}
+{% endschema %}
