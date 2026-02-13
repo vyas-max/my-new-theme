@@ -672,6 +672,16 @@
         "padding_top": 64,
         "padding_bottom": 64
       }
+    },
+    "custom_newsletter_VJEzUQ": {
+      "type": "custom-newsletter",
+      "name": "Custom Newsletter",
+      "settings": {
+        "heading": "Subscribe to our emails",
+        "subheading": "Be the first to know about new collections and special offers.",
+        "padding_top": 48,
+        "padding_bottom": 80
+      }
     }
   },
   "order": [
@@ -685,6 +695,7 @@
     "bundle_fbt_MX7zqH",
     "icon_list_EDq8xE",
     "trending_grid_pqwGRn",
-    "custom_testimonials_KNXtmV"
+    "custom_testimonials_KNXtmV",
+    "custom_newsletter_VJEzUQ"
   ]
 }
