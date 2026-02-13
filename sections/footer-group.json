@@ -11,6 +11,25 @@
   "type": "footer",
   "name": "Footer",
   "sections": {
+    "custom_footer_TT8VbG": {
+      "type": "custom-footer",
+      "name": "Custom Footer",
+      "settings": {
+        "menu_1_heading": "Skin Fx",
+        "menu_1": "",
+        "menu_2_heading": "Color Fx",
+        "menu_2": "",
+        "menu_3_heading": "Company",
+        "menu_3": "",
+        "address_heading": "Address",
+        "address_text": "<p>Felisha Cosmetics Private Limited, 1/1, behind Cinemax, Siddharth Nagar, Mumbai 400104</p><p>ecom@felisha.in</p>",
+        "privacy_link": "",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "padding_top": 80,
+        "padding_bottom": 40
+      }
+    },
     "footer_m9NzUG": {
       "type": "footer",
       "blocks": {
@@ -115,9 +134,9 @@
             "width": "fill",
             "custom_width": 100,
             "inherit_color_scheme": true,
+            "color_scheme": "",
             "heading": "",
             "heading_preset": "h3",
-            "color_scheme": "",
             "border_style": "all",
             "border_width": 1,
             "border_radius": 100,
@@ -139,12 +158,13 @@
         "group_H6VpwJ",
         "email_signup_crihX7"
       ],
+      "disabled": true,
       "name": "t:names.footer",
       "settings": {
         "section_width": "page-width",
         "gap": 20,
         "color_scheme": "scheme-1",
-        "padding-block-start": 30,
+        "padding-block-start": 25,
         "padding-block-end": 30
       }
     },
@@ -193,6 +213,7 @@
         "footer_policy_list_VCdnpa",
         "social_links_Ew63Kq"
       ],
+      "disabled": true,
       "name": "t:names.utilities",
       "settings": {
         "section_width": "page-width",
@@ -205,6 +226,7 @@
     }
   },
   "order": [
+    "custom_footer_TT8VbG",
     "footer_m9NzUG",
     "footer_utilities_jLGE8U"
   ]
