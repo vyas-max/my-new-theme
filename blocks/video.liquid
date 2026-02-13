@@ -16,6 +16,7 @@
     video_loop: block_settings.video_loop,
     video_style: video_style,
     video_preview_image: block_settings.video.preview_image,
+    disable_controls: block_settings.hide_controls,
     additional_attributes: block.shopify_attributes,
     section_id: section.id
   %}
@@ -28,6 +29,7 @@
     video_style: video_style,
     video_alt: block_settings.alt,
     video_preview_image: block_settings.cover_image,
+    disable_controls: block_settings.hide_controls,
     additional_attributes: block.shopify_attributes,
     section_id: section.id
   %}
@@ -86,6 +88,13 @@
       "id": "video_loop",
       "label": "t:settings.video_loop",
       "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_controls",
+      "label": "Hide video controls",
+      "info": "Prevents interaction with the video timeline and most other controls.",
+      "default": false
     },
     {
       "type": "image_picker",
