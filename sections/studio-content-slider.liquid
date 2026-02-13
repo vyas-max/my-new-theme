@@ -97,7 +97,7 @@
 
   .studio-slider__slide.is-active {
     display: grid;
-    animation: studioFadeIn 0.4s ease forwards;
+    animation: studioFadeIn 0.3s ease forwards;
   }
 
   @keyframes studioFadeIn {
@@ -303,7 +303,9 @@
       }
 
       function nextSlide() {
-        goToSlide(currentIndex + 1);
+        let nextIndex = currentIndex + 1;
+        if (nextIndex >= totalSlides) nextIndex = 0;
+        goToSlide(nextIndex);
       }
 
       function startAutoplay() {
@@ -358,7 +360,7 @@
       "min": 2,
       "max": 15,
       "step": 1,
-      "default": 4
+      "default": 3
     },
     {
       "type": "range",
