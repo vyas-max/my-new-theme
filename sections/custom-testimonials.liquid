@@ -17,18 +17,32 @@
       </div>
 
       <div class="testimonial-list-col">
-        <div class="testimonial-scroll-area">
-          {% for block in section.blocks %}
-            <div class="testimonial-card" {{ block.shopify_attributes }}>
-              <div class="testimonial-content">
-                <p class="testimonial-quote">"{{ block.settings.quote }}"</p>
-                <div class="testimonial-meta">
-                  <h4 class="testimonial-author">{{ block.settings.author }}</h4>
-                  <span class="testimonial-source">{{ block.settings.source }}</span>
+        <div class="testimonial-marquee-wrapper">
+          <div class="testimonial-marquee-content">
+            {% for block in section.blocks %}
+              <div class="testimonial-card" {{ block.shopify_attributes }}>
+                <div class="testimonial-content">
+                  <p class="testimonial-quote">"{{ block.settings.quote }}"</p>
+                  <div class="testimonial-meta">
+                    <h4 class="testimonial-author">{{ block.settings.author }}</h4>
+                    <span class="testimonial-source">{{ block.settings.source }}</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          {% endfor %}
+            {% endfor %}
+            {% comment %} Duplicate content for seamless loop {% endcomment %}
+            {% for block in section.blocks %}
+              <div class="testimonial-card" aria-hidden="true">
+                <div class="testimonial-content">
+                  <p class="testimonial-quote">"{{ block.settings.quote }}"</p>
+                  <div class="testimonial-meta">
+                    <h4 class="testimonial-author">{{ block.settings.author }}</h4>
+                    <span class="testimonial-source">{{ block.settings.source }}</span>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
         </div>
       </div>
     </div>
@@ -55,13 +69,12 @@
     font-weight: 500;
     margin-bottom: 5rem;
     color: #000;
-    font-family: inherit;
   }
 
   .testimonial-grid {
     display: flex;
     gap: 4rem;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .testimonial-image-col, 
@@ -79,29 +92,27 @@
     aspect-ratio: 1/1;
   }
 
-  .testimonial-scroll-area {
-    max-height: 500px; /* Adjust height as needed */
-    overflow-y: auto;
-    padding-right: 1.5rem;
+  .testimonial-marquee-wrapper {
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+    mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
   }
 
-  /* Custom Scrollbar */
-  .testimonial-scroll-area::-webkit-scrollbar {
-    width: 6px;
+  .testimonial-marquee-content {
+    display: flex;
+    flex-direction: column;
+    animation: vertical-marquee 30s linear infinite;
   }
 
-  .testimonial-scroll-area::-webkit-scrollbar-track {
-    background: #eee;
-    border-radius: 10px;
+  .testimonial-marquee-wrapper:hover .testimonial-marquee-content {
+    animation-play-state: paused;
   }
 
-  .testimonial-scroll-area::-webkit-scrollbar-thumb {
-    background: #ccc;
-    border-radius: 10px;
-  }
-
-  .testimonial-scroll-area::-webkit-scrollbar-thumb:hover {
-    background: #aaa;
+  @keyframes vertical-marquee {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
   }
 
   .testimonial-card {
@@ -111,10 +122,6 @@
     margin-bottom: 2rem;
     border: 1px solid #e0e0e0;
     transition: box-shadow 0.3s ease;
-  }
-
-  .testimonial-card:last-child {
-    margin-bottom: 0;
   }
 
   .testimonial-card:hover {
