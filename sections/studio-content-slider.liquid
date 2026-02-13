@@ -274,53 +274,67 @@
       const section = document.querySelector('.section-{{ section.id }}');
       if (!section) return;
 
-      const slides = Array.from(section.querySelectorAll('.studio-slider__slide'));
-      const dots = Array.from(section.querySelectorAll('.studio-slider__dot'));
-      const autoplaySpeed = parseInt(window.getComputedStyle(section).getPropertyValue('--autoplay-speed')) * 1000;
+      const slides = section.querySelectorAll('.studio-slider__slide');
+      const dots = section.querySelectorAll('.studio-slider__dot');
+      const totalSlides = slides.length;
+      
+      if (totalSlides <= 1) return;
+
+      const autoplaySpeed = {{ section.settings.autoplay_speed }} * 1000;
       let currentIndex = 0;
       let intervalId = null;
 
       function goToSlide(index) {
-        slides.forEach(s => s.classList.remove('is-active'));
-        dots.forEach(d => d.classList.remove('is-active'));
+        // Clear active classes
+        slides.forEach(slide => slide.classList.remove('is-active'));
+        dots.forEach(dot => dot.classList.remove('is-active'));
 
-        currentIndex = index;
-        if (currentIndex >= slides.length) currentIndex = 0;
-        if (currentIndex < 0) currentIndex = slides.length - 1;
+        currentIndex = (index + totalSlides) % totalSlides;
 
-        slides[currentIndex].classList.add('is-active');
+        // Force reflow for progress bar animation restart
+        const activeSlide = slides[currentIndex];
+        activeSlide.classList.add('is-active');
         
-        // Update all dot groups for the current slide index
-        section.querySelectorAll(`.studio-slider__dot[data-jump="${currentIndex}"]`).forEach(d => d.classList.add('is-active'));
+        // Update dots
+        section.querySelectorAll(`.studio-slider__dot[data-jump="${currentIndex}"]`).forEach(dot => dot.classList.add('is-active'));
         
-        resetTimer();
+        // Restart timer
+        startAutoplay();
       }
 
       function nextSlide() {
         goToSlide(currentIndex + 1);
       }
 
-      function resetTimer() {
+      function startAutoplay() {
         if (intervalId) clearInterval(intervalId);
         intervalId = setInterval(nextSlide, autoplaySpeed);
       }
 
+      function stopAutoplay() {
+        if (intervalId) clearInterval(intervalId);
+      }
+
       // Manual Jump
       section.addEventListener('click', (e) => {
-        const jumpBtn = e.target.closest('.studio-slider__dot');
-        if (jumpBtn) {
-          goToSlide(parseInt(jumpBtn.dataset.jump));
+        const dot = e.target.closest('.studio-slider__dot');
+        if (dot) {
+          goToSlide(parseInt(dot.dataset.jump));
         }
       });
 
-      // Pause on hover
-      section.addEventListener('mouseenter', () => clearInterval(intervalId));
-      section.addEventListener('mouseleave', () => resetTimer());
+      // Pause on interaction
+      section.addEventListener('mouseenter', stopAutoplay);
+      section.addEventListener('mouseleave', startAutoplay);
+      
+      // Accessibility - stop on focus
+      section.addEventListener('focusin', stopAutoplay);
+      section.addEventListener('focusout', startAutoplay);
 
-      resetTimer();
+      startAutoplay();
     }
 
-    // Initialize on load and for Shopify editor
+    // Initialize
     initStudioSlider();
     document.addEventListener('shopify:section:load', initStudioSlider);
   })();
