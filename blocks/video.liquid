@@ -39,6 +39,16 @@
   .placeholder-video {
     aspect-ratio: 5 / 3;
   }
+
+  deferred-media video::-webkit-media-controls {
+    display: none !important;
+  }
+  deferred-media video::-webkit-media-controls-enclosure {
+    display: none !important;
+  }
+  deferred-media video {
+    pointer-events: none;
+  }
 {% endstylesheet %}
 
 {% schema %}
@@ -94,7 +104,7 @@
       "id": "hide_controls",
       "label": "Hide video controls",
       "info": "Prevents interaction with the video timeline and most other controls.",
-      "default": false
+      "default": true
     },
     {
       "type": "image_picker",
