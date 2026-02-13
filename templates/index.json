@@ -631,6 +631,47 @@
         "padding_top": 64,
         "padding_bottom": 64
       }
+    },
+    "custom_testimonials_KNXtmV": {
+      "type": "custom-testimonials",
+      "blocks": {
+        "testimonial_xgMLJ9": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Amazing product, does the job it says it will. Highly recommended!",
+            "author": "Aditya vyas",
+            "source": "Verified Buyer"
+          }
+        },
+        "testimonial_VkHFaL": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Amazing product, does the job it says it will. Highly recommended!",
+            "author": "Customer Name",
+            "source": "Verified Buyer"
+          }
+        },
+        "testimonial_cUMfdD": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Amazing product, does the job it says it will. Highly recommended!",
+            "author": "Customer Name",
+            "source": "Verified Buyer"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_xgMLJ9",
+        "testimonial_VkHFaL",
+        "testimonial_cUMfdD"
+      ],
+      "name": "Custom Testimonials",
+      "settings": {
+        "heading": "What our customers say",
+        "image": "shopify://shop_images/FxStudio_WebBanner_Combo_1_1.png",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
     }
   },
   "order": [
@@ -643,6 +684,7 @@
     "shop_by_mood_cmTMr6",
     "bundle_fbt_MX7zqH",
     "icon_list_EDq8xE",
-    "trending_grid_pqwGRn"
+    "trending_grid_pqwGRn",
+    "custom_testimonials_KNXtmV"
   ]
 }
