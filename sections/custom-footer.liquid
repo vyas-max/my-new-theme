@@ -22,38 +22,40 @@
 
       {% comment %} Column 2: Skin Fx Menu {% endcomment %}
       <div class="footer-col">
-        {% if section.settings.menu_1 != blank %}
           <h3 class="footer-col-title">{{ section.settings.menu_1_heading }}</h3>
           <ul class="footer-menu list-unstyled">
-            {% for link in section.settings.menu_1.links %}
-              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-            {% endfor %}
+            <li><a href="/">Home</a></li>
+            <li><a href="#">Face Wash</a></li>
+            <li><a href="#">Face Wipes</a></li>
+            <li><a href="#">Foot Care</a></li>
+            <li><a href="#">Hand Care</a></li>
+            <li><a href="#">Sunscreen</a></li>
           </ul>
-        {% endif %}
       </div>
 
       {% comment %} Column 3: Color Fx Menu {% endcomment %}
       <div class="footer-col">
-        {% if section.settings.menu_2 != blank %}
           <h3 class="footer-col-title">{{ section.settings.menu_2_heading }}</h3>
           <ul class="footer-menu list-unstyled">
-            {% for link in section.settings.menu_2.links %}
-              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-            {% endfor %}
+            <li><a href="/">Home</a></li>
+            <li><a href="#">Nail Polish</a></li>
+            <li><a href="#">Nail Polish Remover</a></li>
+            <li><a href="#">Nail Polish Combo</a></li>
+            <li><a href="#">Nail Care</a></li>
+            <li><a href="#">Makeup Remover Wipes</a></li>
           </ul>
-        {% endif %}
       </div>
 
       {% comment %} Column 4: Company Menu {% endcomment %}
       <div class="footer-col">
-        {% if section.settings.menu_3 != blank %}
           <h3 class="footer-col-title">{{ section.settings.menu_3_heading }}</h3>
           <ul class="footer-menu list-unstyled">
-            {% for link in section.settings.menu_3.links %}
-              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-            {% endfor %}
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms and Conditions</a></li>
+            <li><a href="#">Cancellation and Return Policy</a></li>
+            <li><a href="#">Shipping Process</a></li>
           </ul>
-        {% endif %}
       </div>
 
       {% comment %} Column 5: Address {% endcomment %}
@@ -281,7 +283,7 @@
       "type": "richtext",
       "id": "address_text",
       "label": "Address Content",
-      "default": "<p>Felisha Cosmetics Private Limited, 1/1, behind Cinemax, Siddharth Nagar, Mumbai 400104</p><p>ecom@felisha.in</p>"
+      "default": "<p>Felisha Cosmetics Private Limited, 1/1, behind Cinemax, 5, opp. Prabhodhan Ground, Siddharth Nagar, Goregaon West, Mumbai, Maharashtra 400104</p><p>ecom@felisha.in</p>"
     },
     {
       "type": "url",
